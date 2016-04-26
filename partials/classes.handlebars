@@ -10,6 +10,7 @@
     {{/each}}
     <br>
 {{/if}}
+
 {{#if extension_for}}
     Extension For:
     {{#each extension_for}}
@@ -17,6 +18,7 @@
     {{/each}}
     <br>
 {{/if}}
+
 {{#if extends}}
     Extends: {{#crossLink extends}}{{/crossLink}}<br>
 {{/if}}
@@ -24,7 +26,7 @@
 
 {{#if is_constructor}}
     {{#is_constructor}}
-{{>method}}
+        {{>method}}
     {{/is_constructor}}
 {{/if}}
 
@@ -47,14 +49,14 @@
         {{#if methods}}
             <div id="methods">
             {{#methods}}
-{{>method}}
+                {{>method}}
             {{/methods}}
             </div>
         {{/if}}
         {{#if properties}}
             <div id="props">
             {{#properties}}
-{{>props}}
+                {{>props}}
             {{/properties}}
             </div>
         {{/if}}
