@@ -432,6 +432,33 @@ ul li p {
 
 
 
+#sidebar {
+  position: fixed;
+  box-sizing: border-box;
+  height: 100%;
+  overflow-x: scroll;
+  padding: 0 15px;
+}
+
+.logo {
+  margin: 30px 0;
+}
+
+.logo img {
+  height: 30px;
+}
+
+.version-info {
+  margin: 20px 0;
+  font-size: 0.8em;
+}
+
+#main {
+  box-sizing: border-box;
+  width: 100%;
+  padding-left: 300px;
+  padding-top: 75px;
+}
 
 .title .source-link {
   float: right;
