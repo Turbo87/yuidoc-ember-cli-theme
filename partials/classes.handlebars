@@ -1,4 +1,8 @@
-<h4>Class {{moduleName}}</h4>
+<div class="title">
+    <span class="source-link"><a href="{{foundAt}}">`{{file}}:{{line}}`</a></span>
+    <h1 class="class-name">{{moduleName}}</h1>
+</div>
+
 {{#if uses}}
     Uses:
     {{#each uses}}
@@ -16,7 +20,6 @@
 {{#if extends}}
     Extends: {{#crossLink extends}}{{/crossLink}}<br>
 {{/if}}
-<span class="foundat">Class defined in: <a href="{{foundAt}}">`{{file}}:{{line}}`</a></span>
 <div class="intro">{{{classDescription}}}</div>
 
 {{#if is_constructor}}
