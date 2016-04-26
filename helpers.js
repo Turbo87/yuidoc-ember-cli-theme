@@ -1,3 +1,7 @@
+var fs = require('fs');
+var MarkdownIt = require('markdown-it');
+var md = new MarkdownIt();
+
 function and() {
   for (var i = 0, len = arguments.length - 1; i < len; i++) {
     if (!arguments[i]) {
@@ -52,6 +56,11 @@ function hasPrivate(items) {
   }
 }
 
+function markdown(path) {
+  var content = fs.readFileSync(path, { encoding: 'utf8' });
+  return md.render(content);
+}
+
 module.exports = {
   and: and,
   or: or,
@@ -61,4 +70,5 @@ module.exports = {
   hasPublic: hasPublic,
   hasProtected: hasProtected,
   hasPrivate: hasPrivate,
+  markdown: markdown,
 };
