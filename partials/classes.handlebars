@@ -20,7 +20,10 @@
 {{/if}}
 
 {{#if extends}}
-    Extends: {{#crossLink extends}}{{/crossLink}}<br>
+    <div class="class-extends">
+        <h4>Extends:</h4>
+        <div>{{#crossLink extends}}{{/crossLink}} → {{moduleName}}</div>
+    </div>
 {{/if}}
 
 <div class="class-description">{{{classDescription}}}</div>
