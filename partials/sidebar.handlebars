@@ -53,11 +53,36 @@
         <h2 class="no-toc">Methods On Page</h2>
     </div>
     <div class="bd">
-        <ul>
-            {{#methods}}
-                <li><a href="#methods_{{name}}">{{name}}</a></li>
-            {{/methods}}
-        </ul>
+        {{#if (hasPublic methods)}}
+            <h4>Public</h4>
+            <ul>
+              {{#methods}}
+                  {{#if (isPublic this)}}
+                      <li><a href="#methods_{{name}}">{{name}}</a></li>
+                  {{/if}}
+              {{/methods}}
+            </ul>
+        {{/if}}
+        {{#if (hasProtected methods)}}
+            <h4>Protected</h4>
+            <ul>
+              {{#methods}}
+                  {{#if (isProtected this)}}
+                      <li><a href="#methods_{{name}}">{{name}}</a></li>
+                  {{/if}}
+              {{/methods}}
+            </ul>
+        {{/if}}
+        {{#if (hasPrivate methods)}}
+            <h4>Private</h4>
+            <ul>
+              {{#methods}}
+                  {{#if (isPrivate this)}}
+                      <li><a href="#methods_{{name}}">{{name}}</a></li>
+                  {{/if}}
+              {{/methods}}
+            </ul>
+        {{/if}}
     </div>
 </div>
 {{/if}}
