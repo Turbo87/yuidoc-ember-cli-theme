@@ -352,13 +352,6 @@ th {
 }
 
 
-a.external {
-    background-image: url(external-small.png);
-    background-repeat: no-repeat;
-    background-position: 0 0;
-    padding-left: 16px;
-}
-
 #classdocs .item {
     border-bottom: 1px solid #466899;
     margin: 1em 0;
