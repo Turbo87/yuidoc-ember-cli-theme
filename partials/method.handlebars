@@ -3,7 +3,7 @@
     <div class="title">
         <span class="source-link"><a href="{{foundAt}}">`{{file}}:{{line}}`</a></span>
         <h3>
-            {{#if access}}{{access}}{{/if}}
+            {{ensure-access access}}
             {{#if final}}static{{/if}}
             {{#if final}}final{{/if}}
             {{name}}({{paramsList}}){{#if return}}: {{#crossLink return.type}}{{/crossLink}}{{/if}}

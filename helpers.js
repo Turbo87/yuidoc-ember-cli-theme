@@ -28,6 +28,10 @@ function concat() {
   return result;
 }
 
+function ensureAccess(item) {
+  return item || 'public';
+}
+
 function isPublic(item) {
   return !item.access || item.access === 'public';
 }
@@ -80,6 +84,7 @@ module.exports = {
   and: and,
   or: or,
   concat: concat,
+  'ensure-access': ensureAccess,
   isPublic: isPublic,
   isProtected: isProtected,
   isPrivate: isPrivate,
