@@ -456,3 +456,29 @@ ul li p {
 .title .source-link {
   float: right;
 }
+
+thead tr {
+  background: #f8f8f8;
+}
+
+td, th {
+  background: inherit;
+  border: solid 1px #f8f8f8;
+  vertical-align: middle;
+}
+
+.params ul {
+  margin: 0;
+  padding-left: 16px;
+}
+
+.return-type,
+.throws-type {
+  margin: 0 10px;
+}
+
+.return-description p:first-child,
+.throws-description p:first-child {
+  display: inline-block;
+  margin: 0;
+}

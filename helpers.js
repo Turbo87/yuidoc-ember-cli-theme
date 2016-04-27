@@ -20,6 +20,14 @@ function or() {
   return false;
 }
 
+function concat() {
+  var result = '';
+  for (var i = 0, len = arguments.length - 1; i < len; i++) {
+    result += arguments[i];
+  }
+  return result;
+}
+
 function isPublic(item) {
   return !item.access || item.access === 'public';
 }
@@ -64,6 +72,7 @@ function markdown(path) {
 module.exports = {
   and: and,
   or: or,
+  concat: concat,
   isPublic: isPublic,
   isProtected: isProtected,
   isPrivate: isPrivate,
