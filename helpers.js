@@ -32,6 +32,14 @@ function ensureAccess(item) {
   return item || 'public';
 }
 
+function isStatic(item) {
+  return item.static;
+}
+
+function isNonStatic(item) {
+  return !isStatic(item);
+}
+
 function isPublic(item) {
   return !item.access || item.access === 'public';
 }
@@ -44,6 +52,14 @@ function isPrivate(item) {
   return item.access === 'private';
 }
 
+function hasStatic(items) {
+  return has(items, isStatic);
+}
+
+function hasNonStatic(items) {
+  return has(items, isNonStatic);
+}
+
 function hasPublic(items) {
   return has(items, isPublic);
 }
@@ -54,6 +70,42 @@ function hasProtected(items) {
 
 function hasPrivate(items) {
   return has(items, isPrivate);
+}
+
+function hasStaticPublic(items) {
+  return has(items, function(item) {
+    return isStatic(item) && isPublic(item);
+  });
+}
+
+function hasStaticProtected(items) {
+  return has(items, function(item) {
+    return isStatic(item) && isProtected(item);
+  });
+}
+
+function hasStaticPrivate(items) {
+  return has(items, function(item) {
+    return isStatic(item) && isPrivate(item);
+  });
+}
+
+function hasNonStaticPublic(items) {
+  return has(items, function(item) {
+    return isNonStatic(item) && isPublic(item);
+  });
+}
+
+function hasNonStaticProtected(items) {
+  return has(items, function(item) {
+    return isNonStatic(item) && isProtected(item);
+  });
+}
+
+function hasNonStaticPrivate(items) {
+  return has(items, function(item) {
+    return isNonStatic(item) && isPrivate(item);
+  });
 }
 
 function has(items, predicate) {
@@ -84,13 +136,23 @@ module.exports = {
   and: and,
   or: or,
   concat: concat,
-  'ensure-access': ensureAccess,
+  isStatic: isStatic,
+  isNonStatic: isNonStatic,
   isPublic: isPublic,
   isProtected: isProtected,
   isPrivate: isPrivate,
+  hasStatic: hasStatic,
+  hasNonStatic: hasNonStatic,
   hasPublic: hasPublic,
   hasProtected: hasProtected,
   hasPrivate: hasPrivate,
+  hasStaticPublic: hasStaticPublic,
+  hasStaticProtected: hasStaticProtected,
+  hasStaticPrivate: hasStaticPrivate,
+  hasNonStaticPublic: hasNonStaticPublic,
+  hasNonStaticProtected: hasNonStaticProtected,
+  hasNonStaticPrivate: hasNonStaticPrivate,
   markdown: markdown,
+  'ensure-access': ensureAccess,
   'first-paragraph': firstParagraph,
 };

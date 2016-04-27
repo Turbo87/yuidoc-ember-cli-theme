@@ -28,19 +28,19 @@
 
 <div class="class-description">{{{classDescription}}}</div>
 
-{{#if methods}}
-  <h2>Methods Overview</h2>
+{{#if (hasStatic methods)}}
+  <h2>Static Method Summary</h2>
 
-  {{#if (hasPublic methods)}}
+  {{#if (hasStaticPublic methods)}}
     <table>
       <thead>
       <tr>
-        <th colspan="2">Public Methods</th>
+        <th colspan="2">Static Public Methods</th>
       </tr>
       </thead>
       <tbody>
       {{#each methods}}
-        {{#if (isPublic this)}}
+        {{#if (and (isStatic this) (isPublic this))}}
           {{>method-short}}
         {{/if}}
       {{/each}}
@@ -48,16 +48,16 @@
     </table>
   {{/if}}
 
-  {{#if (hasProtected methods)}}
+  {{#if (hasStaticProtected methods)}}
     <table>
       <thead>
       <tr>
-        <th colspan="2">Protected Methods</th>
+        <th colspan="2">Static Protected Methods</th>
       </tr>
       </thead>
       <tbody>
       {{#each methods}}
-        {{#if (isProtected this)}}
+        {{#if (and (isStatic this) (isProtected this))}}
           {{>method-short}}
         {{/if}}
       {{/each}}
@@ -65,16 +65,16 @@
     </table>
   {{/if}}
 
-  {{#if (hasPrivate methods)}}
+  {{#if (hasStaticPrivate methods)}}
     <table>
       <thead>
       <tr>
-        <th colspan="2">Private Methods</th>
+        <th colspan="2">Static Private Methods</th>
       </tr>
       </thead>
       <tbody>
       {{#each methods}}
-        {{#if (isPrivate this)}}
+        {{#if (and (isStatic this) (isPrivate this))}}
           {{>method-short}}
         {{/if}}
       {{/each}}
@@ -83,7 +83,60 @@
   {{/if}}
 {{/if}}
 
+{{#if (hasNonStatic methods)}}
+  <h2>Method Summary</h2>
 
+  {{#if (hasNonStaticPublic methods)}}
+    <table>
+      <thead>
+      <tr>
+        <th colspan="2">Public Methods</th>
+      </tr>
+      </thead>
+      <tbody>
+      {{#each methods}}
+        {{#if (and (isNonStatic this) (isPublic this))}}
+          {{>method-short}}
+        {{/if}}
+      {{/each}}
+      </tbody>
+    </table>
+  {{/if}}
+
+  {{#if (hasNonStaticProtected methods)}}
+    <table>
+      <thead>
+      <tr>
+        <th colspan="2">Protected Methods</th>
+      </tr>
+      </thead>
+      <tbody>
+      {{#each methods}}
+        {{#if (and (isNonStatic this) (isProtected this))}}
+          {{>method-short}}
+        {{/if}}
+      {{/each}}
+      </tbody>
+    </table>
+  {{/if}}
+
+  {{#if (hasNonStaticPrivate methods)}}
+    <table>
+      <thead>
+      <tr>
+        <th colspan="2">Private Methods</th>
+      </tr>
+      </thead>
+      <tbody>
+      {{#each methods}}
+        {{#if (and (isNonStatic this) (isPrivate this))}}
+          {{>method-short}}
+        {{/if}}
+      {{/each}}
+      </tbody>
+    </table>
+  {{/if}}
+{{/if}}
 
 
 
@@ -93,38 +146,75 @@
     {{/each}}
 {{/if}}
 
-{{#if (hasPublic methods)}}
+
+
+{{#if (hasStaticPublic methods)}}
+    <div id="methods public">
+        <h2>Static Public Methods</h2>
+        {{#each methods}}
+            {{#if (and (isStatic this) (isPublic this))}}
+{{>method}}
+            {{/if}}
+        {{/each}}
+    </div>
+{{/if}}
+
+{{#if (hasStaticProtected methods)}}
+    <div id="methods public">
+        <h2>Static Protected Methods</h2>
+        {{#each methods}}
+            {{#if (and (isStatic this) (isProtected this))}}
+{{>method}}
+            {{/if}}
+        {{/each}}
+    </div>
+{{/if}}
+
+{{#if (hasStaticPrivate methods)}}
+    <div id="methods public">
+        <h2>Static Private Methods</h2>
+        {{#each methods}}
+            {{#if (and (isStatic this) (isPrivate this))}}
+{{>method}}
+            {{/if}}
+        {{/each}}
+    </div>
+{{/if}}
+
+{{#if (hasNonStaticPublic methods)}}
     <div id="methods public">
         <h2>Public Methods</h2>
         {{#each methods}}
-            {{#if (isPublic this)}}
+            {{#if (and (isNonStatic this) (isPublic this))}}
 {{>method}}
             {{/if}}
         {{/each}}
     </div>
 {{/if}}
 
-{{#if (hasProtected methods)}}
+{{#if (hasNonStaticProtected methods)}}
     <div id="methods public">
         <h2>Protected Methods</h2>
         {{#each methods}}
-            {{#if (isProtected this)}}
+            {{#if (and (isNonStatic this) (isProtected this))}}
 {{>method}}
             {{/if}}
         {{/each}}
     </div>
 {{/if}}
 
-{{#if (hasPrivate methods)}}
+{{#if (hasNonStaticPrivate methods)}}
     <div id="methods public">
         <h2>Private Methods</h2>
         {{#each methods}}
-            {{#if (isPrivate this)}}
+            {{#if (and (isNonStatic this) (isPrivate this))}}
 {{>method}}
             {{/if}}
         {{/each}}
     </div>
 {{/if}}
+
+
 
 {{#if properties}}
     <div id="props">
