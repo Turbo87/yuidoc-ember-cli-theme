@@ -35,11 +35,35 @@
 {{/if}}
 
 <div id="classdocs">
-    {{#if methods}}
-        <div id="methods">
-        <h2>Methods</h2>
+    {{#if (hasPublic methods)}}
+        <div id="methods public">
+        <h2>Public Methods</h2>
         {{#each methods}}
+            {{#if (isPublic this)}}
 {{>method}}
+            {{/if}}
+        {{/each}}
+        </div>
+    {{/if}}
+
+    {{#if (hasProtected methods)}}
+        <div id="methods public">
+        <h2>Protected Methods</h2>
+        {{#each methods}}
+            {{#if (isProtected this)}}
+{{>method}}
+            {{/if}}
+        {{/each}}
+        </div>
+    {{/if}}
+
+    {{#if (hasPrivate methods)}}
+        <div id="methods public">
+        <h2>Private Methods</h2>
+        {{#each methods}}
+            {{#if (isPrivate this)}}
+{{>method}}
+            {{/if}}
         {{/each}}
         </div>
     {{/if}}

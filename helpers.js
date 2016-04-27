@@ -41,25 +41,31 @@ function isPrivate(item) {
 }
 
 function hasPublic(items) {
-  for (var i = 0, len = items.length; i < len; i++) {
-    if (isPublic(items[i])) {
-      return true;
+  if (items) {
+    for (var i = 0, len = items.length; i < len; i++) {
+      if (isPublic(items[i])) {
+        return true;
+      }
     }
   }
 }
 
 function hasProtected(items) {
-  for (var i = 0, len = items.length; i < len; i++) {
-    if (isProtected(items[i])) {
-      return true;
+  if (items) {
+    for (var i = 0, len = items.length; i < len; i++) {
+      if (isProtected(items[i])) {
+        return true;
+      }
     }
   }
 }
 
 function hasPrivate(items) {
-  for (var i = 0, len = items.length; i < len; i++) {
-    if (isPrivate(items[i])) {
-      return true;
+  if (items) {
+    for (var i = 0, len = items.length; i < len; i++) {
+      if (isPrivate(items[i])) {
+        return true;
+      }
     }
   }
 }
