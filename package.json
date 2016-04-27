@@ -1,0 +1,24 @@
+{
+  "name": "yuidoc-ember-cli-theme",
+  "version": "1.0.0",
+  "description": "YUIDoc theme for Ember CLI",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Turbo87/yuidoc-ember-cli-theme.git"
+  },
+  "keywords": [
+    "yuidoc",
+    "ember-cli",
+    "theme"
+  ],
+  "author": "Tobias Bieniek <tobias.bieniek@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Turbo87/yuidoc-ember-cli-theme/issues"
+  },
+  "homepage": "https://github.com/Turbo87/yuidoc-ember-cli-theme#readme"
+}
