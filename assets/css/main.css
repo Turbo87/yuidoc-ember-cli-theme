@@ -529,3 +529,7 @@ ol.linenums > li:before {
 ol.linenums:first-child {
   counter-reset: linenumcounter;
 }
+
+.deprecated {
+  text-decoration: line-through;
+}

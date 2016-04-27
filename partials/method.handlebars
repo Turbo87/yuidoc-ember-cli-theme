@@ -2,7 +2,7 @@
 <div class="method item{{#if access}} {{access}}{{/if}}">
     <div class="title">
         <span class="source-link"><a href="{{foundAt}}">`{{file}}:{{line}}`</a></span>
-        <h3>
+        <h3 class="{{#if deprecated}}deprecated{{/if}}">
             {{ensure-access access}}
             {{#if static}}static{{/if}}
             {{#if final}}final{{/if}}
@@ -20,6 +20,16 @@
           Inherited from {{#crossLink (concat extended_from "/" name ":method")}}{{extended_from}}{{/crossLink}}
         </div>
       {{/if}}
+    {{/if}}
+
+    {{#if deprecated}}
+      <div class="deprecation-message">
+        {{#if deprecationMessage}}
+          <p><strong>Deprecated:</strong> {{{deprecationMessage}}}</p>
+        {{else}}
+          <p><strong>Deprecated:</strong> This method is deprecated.</p>
+        {{/if}}
+      </div>
     {{/if}}
 
     <div class="method-description">{{{methodDescription}}}</div>

@@ -5,7 +5,7 @@
     {{#if final}}final{{/if}}
   </td>
   <td>
-    <div>
+    <div class="method-name {{#if deprecated}}deprecated{{/if}}">
       <a href="#method_{{name}}">{{name}}</a>({{paramsList}}){{#if return}}: {{#crossLink return.type}}{{/crossLink}}{{/if}}
     </div>
     <div class="short-description">
