@@ -116,9 +116,9 @@ pre.code, pre.terminal, pre.cmd {
 }
 
 pre.code {
-    background: #FCFBFA;
-    border: 1px solid #EFEEED;
-    border-left-width: 5px;
+    background: #f7f7f7;
+    border: none;
+    padding: 16px;
 }
 
 pre.terminal, pre.cmd {
@@ -389,17 +389,6 @@ abbr {
     cursor: help;
 }
 
-.prettyprint li.L0,
-.prettyprint li.L1,
-.prettyprint li.L2,
-.prettyprint li.L3,
-.prettyprint li.L5,
-.prettyprint li.L6,
-.prettyprint li.L7,
-.prettyprint li.L8 {
-    list-style: decimal;
-}
-
 ul li p {
     margin-top: 0;
 }
@@ -497,4 +486,38 @@ td, th {
 .throws-description p:first-child {
   display: inline-block;
   margin: 0;
+}
+
+
+pre.linenums {
+  background: transparent;
+  border: 1px solid #eee;
+}
+
+li.L1, li.L3, li.L5, li.L7, li.L9 {
+  background: transparent;
+}
+
+ol.linenums {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+ol.linenums > li {
+  counter-increment: linenumcounter;
+}
+
+ol.linenums > li:before {
+  content: counter(linenumcounter) " ";
+  float: left;
+  width: 55px;
+  text-align: right;
+  margin-right: 10px;
+  color: #ccc;
+  border-right: 1px solid #eee;
+}
+
+ol.linenums:first-child {
+  counter-reset: linenumcounter;
 }
