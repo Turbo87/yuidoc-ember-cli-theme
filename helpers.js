@@ -41,29 +41,21 @@ function isPrivate(item) {
 }
 
 function hasPublic(items) {
-  if (items) {
-    for (var i = 0, len = items.length; i < len; i++) {
-      if (isPublic(items[i])) {
-        return true;
-      }
-    }
-  }
+  return has(items, isPublic);
 }
 
 function hasProtected(items) {
-  if (items) {
-    for (var i = 0, len = items.length; i < len; i++) {
-      if (isProtected(items[i])) {
-        return true;
-      }
-    }
-  }
+  return has(items, isProtected);
 }
 
 function hasPrivate(items) {
+  return has(items, isPrivate);
+}
+
+function has(items, predicate) {
   if (items) {
     for (var i = 0, len = items.length; i < len; i++) {
-      if (isPrivate(items[i])) {
+      if (predicate(items[i])) {
         return true;
       }
     }
