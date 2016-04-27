@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/Turbo87/yuidoc-ember-cli-theme/issues"
   },
-  "homepage": "https://github.com/Turbo87/yuidoc-ember-cli-theme#readme"
+  "homepage": "https://github.com/Turbo87/yuidoc-ember-cli-theme#readme",
+  "dependencies": {
+    "markdown-it": "^6.0.1"
+  }
 }
