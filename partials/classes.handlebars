@@ -83,6 +83,63 @@
   {{/if}}
 {{/if}}
 
+
+{{#if is_constructor}}
+  <h2>Constructor Summary</h2>
+
+  {{#if (hasPublic is_constructor)}}
+    <table>
+      <thead>
+      <tr>
+        <th colspan="2">Public Constructors</th>
+      </tr>
+      </thead>
+      <tbody>
+      {{#each is_constructor}}
+        {{#if (isPublic this)}}
+          {{>method-short}}
+        {{/if}}
+      {{/each}}
+      </tbody>
+    </table>
+  {{/if}}
+
+  {{#if (hasProtected is_constructor)}}
+    <table>
+      <thead>
+      <tr>
+        <th colspan="2">Protected Constructors</th>
+      </tr>
+      </thead>
+      <tbody>
+      {{#each is_constructor}}
+        {{#if (isProtected this)}}
+          {{>method-short}}
+        {{/if}}
+      {{/each}}
+      </tbody>
+    </table>
+  {{/if}}
+
+  {{#if (hasPrivate is_constructor)}}
+    <table>
+      <thead>
+      <tr>
+        <th colspan="2">Private Constructors</th>
+      </tr>
+      </thead>
+      <tbody>
+      {{#each is_constructor}}
+        {{#if (isPrivate this)}}
+          {{>method-short}}
+        {{/if}}
+      {{/each}}
+      </tbody>
+    </table>
+  {{/if}}
+{{/if}}
+
+
 {{#if (hasNonStatic methods)}}
   <h2>Method Summary</h2>
 
@@ -140,14 +197,6 @@
 
 
 
-{{#if is_constructor}}
-    {{#each is_constructor}}
-{{>method}}
-    {{/each}}
-{{/if}}
-
-
-
 {{#if (hasStaticPublic methods)}}
     <div id="methods public">
         <h2>Static Public Methods</h2>
@@ -181,15 +230,48 @@
     </div>
 {{/if}}
 
-{{#if (hasNonStaticPublic methods)}}
-    <div id="methods public">
-        <h2>Public Methods</h2>
-        {{#each methods}}
-            {{#if (and (isNonStatic this) (isPublic this))}}
+{{#if (hasPublic is_constructor)}}
+  <div id="methods public">
+    <h2>Public Constructors</h2>
+    {{#each is_constructor}}
+      {{#if (isPublic this)}}
 {{>method}}
-            {{/if}}
-        {{/each}}
-    </div>
+      {{/if}}
+    {{/each}}
+  </div>
+{{/if}}
+
+{{#if (hasProtected is_constructor)}}
+  <div id="methods public">
+    <h2>Protected Constructors</h2>
+    {{#each is_constructor}}
+      {{#if (isProtected this)}}
+{{>method}}
+      {{/if}}
+    {{/each}}
+  </div>
+{{/if}}
+
+{{#if (hasPrivate is_constructor)}}
+  <div id="methods public">
+    <h2>Private Constructors</h2>
+    {{#each is_constructor}}
+      {{#if (isPrivate this)}}
+{{>method}}
+      {{/if}}
+    {{/each}}
+  </div>
+{{/if}}
+
+{{#if (hasNonStaticPublic methods)}}
+  <div id="methods public">
+    <h2>Public Methods</h2>
+    {{#each methods}}
+      {{#if (and (isNonStatic this) (isPublic this))}}
+{{>method}}
+      {{/if}}
+    {{/each}}
+  </div>
 {{/if}}
 
 {{#if (hasNonStaticProtected methods)}}
