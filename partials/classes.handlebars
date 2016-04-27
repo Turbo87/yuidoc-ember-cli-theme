@@ -28,6 +28,65 @@
 
 <div class="class-description">{{{classDescription}}}</div>
 
+{{#if methods}}
+  <h2>Methods Overview</h2>
+
+  {{#if (hasPublic methods)}}
+    <table>
+      <thead>
+      <tr>
+        <th colspan="2">Public Methods</th>
+      </tr>
+      </thead>
+      <tbody>
+      {{#each methods}}
+        {{#if (isPublic this)}}
+          {{>method-short}}
+        {{/if}}
+      {{/each}}
+      </tbody>
+    </table>
+  {{/if}}
+
+  {{#if (hasProtected methods)}}
+    <table>
+      <thead>
+      <tr>
+        <th colspan="2">Protected Methods</th>
+      </tr>
+      </thead>
+      <tbody>
+      {{#each methods}}
+        {{#if (isProtected this)}}
+          {{>method-short}}
+        {{/if}}
+      {{/each}}
+      </tbody>
+    </table>
+  {{/if}}
+
+  {{#if (hasPrivate methods)}}
+    <table>
+      <thead>
+      <tr>
+        <th colspan="2">Private Methods</th>
+      </tr>
+      </thead>
+      <tbody>
+      {{#each methods}}
+        {{#if (isPrivate this)}}
+          {{>method-short}}
+        {{/if}}
+      {{/each}}
+      </tbody>
+    </table>
+  {{/if}}
+{{/if}}
+
+
+
+
+
 {{#if is_constructor}}
     {{#each is_constructor}}
 {{>method}}

@@ -1,0 +1,13 @@
+<tr>
+  <td>{{access}}</td>
+  <td>
+    <div>
+      {{#if final}}static{{/if}}
+      {{#if final}}final{{/if}}
+      <a href="#method_{{name}}">{{name}}</a>({{paramsList}}){{#if return}}: {{#crossLink return.type}}{{/crossLink}}{{/if}}
+    </div>
+    <div class="short-description">
+      {{{first-paragraph description}}}
+    </div>
+  </td>
+</tr>

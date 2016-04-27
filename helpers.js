@@ -75,6 +75,15 @@ function markdown(path) {
   return md.render(content);
 }
 
+function firstParagraph(text) {
+  if (text) {
+    var match = text.replace(/\n/g, ' ').match(/<p>.*?<\/p>/m);
+    if (match) {
+      return match[0];
+    }
+  }
+}
+
 module.exports = {
   and: and,
   or: or,
@@ -86,4 +95,5 @@ module.exports = {
   hasProtected: hasProtected,
   hasPrivate: hasPrivate,
   markdown: markdown,
+  'first-paragraph': firstParagraph,
 };
