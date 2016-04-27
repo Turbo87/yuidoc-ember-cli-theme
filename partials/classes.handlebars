@@ -32,7 +32,7 @@
   <h2>Static Method Summary</h2>
 
   {{#if (hasStaticPublic methods)}}
-    <table>
+    <table class="summary">
       <thead>
       <tr>
         <th colspan="2">Static Public Methods</th>
@@ -49,7 +49,7 @@
   {{/if}}
 
   {{#if (hasStaticProtected methods)}}
-    <table>
+    <table class="summary">
       <thead>
       <tr>
         <th colspan="2">Static Protected Methods</th>
@@ -66,7 +66,7 @@
   {{/if}}
 
   {{#if (hasStaticPrivate methods)}}
-    <table>
+    <table class="summary">
       <thead>
       <tr>
         <th colspan="2">Static Private Methods</th>
@@ -88,7 +88,7 @@
   <h2>Constructor Summary</h2>
 
   {{#if (hasPublic is_constructor)}}
-    <table>
+    <table class="summary">
       <thead>
       <tr>
         <th colspan="2">Public Constructors</th>
@@ -105,7 +105,7 @@
   {{/if}}
 
   {{#if (hasProtected is_constructor)}}
-    <table>
+    <table class="summary">
       <thead>
       <tr>
         <th colspan="2">Protected Constructors</th>
@@ -122,7 +122,7 @@
   {{/if}}
 
   {{#if (hasPrivate is_constructor)}}
-    <table>
+    <table class="summary">
       <thead>
       <tr>
         <th colspan="2">Private Constructors</th>
@@ -144,7 +144,7 @@
   <h2>Method Summary</h2>
 
   {{#if (hasNonStaticPublic methods)}}
-    <table>
+    <table class="summary">
       <thead>
       <tr>
         <th colspan="2">Public Methods</th>
@@ -161,7 +161,7 @@
   {{/if}}
 
   {{#if (hasNonStaticProtected methods)}}
-    <table>
+    <table class="summary">
       <thead>
       <tr>
         <th colspan="2">Protected Methods</th>
@@ -178,7 +178,7 @@
   {{/if}}
 
   {{#if (hasNonStaticPrivate methods)}}
-    <table>
+    <table class="summary">
       <thead>
       <tr>
         <th colspan="2">Private Methods</th>

@@ -462,6 +462,14 @@ ul li p {
   margin: 0;
 }
 
+table.summary td:nth-child(1) {
+  white-space: nowrap;
+}
+
+table.summary td:nth-child(2) {
+  width: 100%;
+}
+
 thead tr {
   background: #f8f8f8;
 }
