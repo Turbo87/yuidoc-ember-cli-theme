@@ -457,6 +457,17 @@ ul li p {
   float: right;
 }
 
+.method .title {
+  background: #f8f8f8;
+  padding: 8px 15px;
+  margin-top: 40px;
+  margin-left: -15px;
+}
+
+.method .title h3 {
+  margin: 0;
+}
+
 thead tr {
   background: #f8f8f8;
 }
