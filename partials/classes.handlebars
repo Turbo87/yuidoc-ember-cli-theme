@@ -34,64 +34,62 @@
     {{/each}}
 {{/if}}
 
-<div id="classdocs">
-    {{#if (hasPublic methods)}}
-        <div id="methods public">
+{{#if (hasPublic methods)}}
+    <div id="methods public">
         <h2>Public Methods</h2>
         {{#each methods}}
             {{#if (isPublic this)}}
 {{>method}}
             {{/if}}
         {{/each}}
-        </div>
-    {{/if}}
+    </div>
+{{/if}}
 
-    {{#if (hasProtected methods)}}
-        <div id="methods public">
+{{#if (hasProtected methods)}}
+    <div id="methods public">
         <h2>Protected Methods</h2>
         {{#each methods}}
             {{#if (isProtected this)}}
 {{>method}}
             {{/if}}
         {{/each}}
-        </div>
-    {{/if}}
+    </div>
+{{/if}}
 
-    {{#if (hasPrivate methods)}}
-        <div id="methods public">
+{{#if (hasPrivate methods)}}
+    <div id="methods public">
         <h2>Private Methods</h2>
         {{#each methods}}
             {{#if (isPrivate this)}}
 {{>method}}
             {{/if}}
         {{/each}}
-        </div>
-    {{/if}}
+    </div>
+{{/if}}
 
-    {{#if properties}}
-        <div id="props">
+{{#if properties}}
+    <div id="props">
         <h2>Properties</h2>
         {{#each properties}}
 {{>props}}
         {{/each}}
-        </div>
-    {{/if}}
+    </div>
+{{/if}}
 
-    {{#if attrs}}
-        <div id="attrs">
+{{#if attrs}}
+    <div id="attrs">
         <h2>Attributes</h2>
         {{#each attrs}}
 {{>attrs}}
         {{/each}}
-        </div>
-    {{/if}}
+    </div>
+{{/if}}
 
-    {{#if events}}
-        <div id="events">
+{{#if events}}
+    <div id="events">
         <h2>Events</h2>
         {{#each events}}
 {{>events}}
         {{/each}}
-        </div>
-    {{/if}}
-</div>
+    </div>
+{{/if}}
