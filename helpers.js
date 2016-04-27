@@ -52,69 +52,40 @@ function isPrivate(item) {
   return item.access === 'private';
 }
 
-function hasStatic(items) {
-  return has(items, isStatic);
-}
+function filter(items) {
+  var args = arguments;
 
-function hasNonStatic(items) {
-  return has(items, isNonStatic);
-}
-
-function hasPublic(items) {
-  return has(items, isPublic);
-}
-
-function hasProtected(items) {
-  return has(items, isProtected);
-}
-
-function hasPrivate(items) {
-  return has(items, isPrivate);
-}
-
-function hasStaticPublic(items) {
-  return has(items, function(item) {
-    return isStatic(item) && isPublic(item);
-  });
-}
-
-function hasStaticProtected(items) {
-  return has(items, function(item) {
-    return isStatic(item) && isProtected(item);
-  });
-}
-
-function hasStaticPrivate(items) {
-  return has(items, function(item) {
-    return isStatic(item) && isPrivate(item);
-  });
-}
-
-function hasNonStaticPublic(items) {
-  return has(items, function(item) {
-    return isNonStatic(item) && isPublic(item);
-  });
-}
-
-function hasNonStaticProtected(items) {
-  return has(items, function(item) {
-    return isNonStatic(item) && isProtected(item);
-  });
-}
-
-function hasNonStaticPrivate(items) {
-  return has(items, function(item) {
-    return isNonStatic(item) && isPrivate(item);
-  });
-}
-
-function has(items, predicate) {
   if (items) {
-    for (var i = 0, len = items.length; i < len; i++) {
-      if (predicate(items[i])) {
-        return true;
+    return items.filter(function(item) {
+      for (var i = 1, len = args.length - 1; i < len; i++) {
+        if (!fulfills(item, args[i])) {
+          return false
+        }
       }
-    }
+
+      return true;
+    })
+  }
+}
+
+function fulfills(item, condition) {
+  var negated = (condition[0] === '!');
+  if (negated) {
+    condition = condition.substring(1);
+  }
+
+  return negated ? !_fulfills(item, condition) : _fulfills(item, condition);
+}
+
+function _fulfills(item, condition) {
+  if (condition === 'public') {
+    return isPublic(item);
+  } else if (condition === 'protected') {
+    return isProtected(item);
+  } else if (condition === 'private') {
+    return isPrivate(item);
+  } else if (condition === 'static') {
+    return isStatic(item);
   }
 }
 
@@ -141,17 +112,7 @@ module.exports = {
   isPublic: isPublic,
   isProtected: isProtected,
   isPrivate: isPrivate,
-  hasStatic: hasStatic,
-  hasNonStatic: hasNonStatic,
-  hasPublic: hasPublic,
-  hasProtected: hasProtected,
-  hasPrivate: hasPrivate,
-  hasStaticPublic: hasStaticPublic,
-  hasStaticProtected: hasStaticProtected,
-  hasStaticPrivate: hasStaticPrivate,
-  hasNonStaticPublic: hasNonStaticPublic,
-  hasNonStaticProtected: hasNonStaticProtected,
-  hasNonStaticPrivate: hasNonStaticPrivate,
+  filter: filter,
   markdown: markdown,
   'ensure-access': ensureAccess,
   'first-paragraph': firstParagraph,

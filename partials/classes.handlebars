@@ -28,10 +28,10 @@
 
 <div class="class-description">{{{classDescription}}}</div>
 
-{{#if (hasStatic methods)}}
+{{#if (filter methods "static")}}
   <h2 id="static-method-summary">Static Method Summary</h2>
 
-  {{#if (hasStaticPublic methods)}}
+  {{#if (filter methods "static" "public")}}
     <table class="summary">
       <thead>
       <tr>
@@ -39,16 +39,14 @@
       </tr>
       </thead>
       <tbody>
-      {{#each methods}}
-        {{#if (and (isStatic this) (isPublic this))}}
-          {{>method-short}}
-        {{/if}}
+      {{#each (filter methods "static" "public")}}
+        {{>method-short}}
       {{/each}}
       </tbody>
     </table>
   {{/if}}
 
-  {{#if (hasStaticProtected methods)}}
+  {{#if (filter methods "static" "protected")}}
     <table class="summary">
       <thead>
       <tr>
@@ -56,16 +54,14 @@
       </tr>
       </thead>
       <tbody>
-      {{#each methods}}
-        {{#if (and (isStatic this) (isProtected this))}}
-          {{>method-short}}
-        {{/if}}
+      {{#each (filter methods "static" "protected")}}
+        {{>method-short}}
       {{/each}}
       </tbody>
     </table>
   {{/if}}
 
-  {{#if (hasStaticPrivate methods)}}
+  {{#if (filter methods "static" "private")}}
     <table class="summary">
       <thead>
       <tr>
@@ -73,10 +69,8 @@
       </tr>
       </thead>
       <tbody>
-      {{#each methods}}
-        {{#if (and (isStatic this) (isPrivate this))}}
-          {{>method-short}}
-        {{/if}}
+      {{#each (filter methods "static" "private")}}
+        {{>method-short}}
       {{/each}}
       </tbody>
     </table>
@@ -87,7 +81,7 @@
 {{#if is_constructor}}
   <h2 id="constructor-summary">Constructor Summary</h2>
 
-  {{#if (hasPublic is_constructor)}}
+  {{#if (filter is_constructor "public")}}
     <table class="summary">
       <thead>
       <tr>
@@ -95,16 +89,14 @@
       </tr>
       </thead>
       <tbody>
-      {{#each is_constructor}}
-        {{#if (isPublic this)}}
-          {{>method-short}}
-        {{/if}}
+      {{#each (filter is_constructor "public")}}
+        {{>method-short}}
       {{/each}}
       </tbody>
     </table>
   {{/if}}
 
-  {{#if (hasProtected is_constructor)}}
+  {{#if (filter is_constructor "protected")}}
     <table class="summary">
       <thead>
       <tr>
@@ -112,16 +104,14 @@
       </tr>
       </thead>
       <tbody>
-      {{#each is_constructor}}
-        {{#if (isProtected this)}}
-          {{>method-short}}
-        {{/if}}
+      {{#each (filter is_constructor "protected")}}
+        {{>method-short}}
       {{/each}}
       </tbody>
     </table>
   {{/if}}
 
-  {{#if (hasPrivate is_constructor)}}
+  {{#if (filter is_constructor "private")}}
     <table class="summary">
       <thead>
       <tr>
@@ -129,10 +119,8 @@
       </tr>
       </thead>
       <tbody>
-      {{#each is_constructor}}
-        {{#if (isPrivate this)}}
-          {{>method-short}}
-        {{/if}}
+      {{#each (filter is_constructor "private")}}
+        {{>method-short}}
       {{/each}}
       </tbody>
     </table>
@@ -140,10 +128,10 @@
 {{/if}}
 
 
-{{#if (hasNonStatic methods)}}
+{{#if (filter methods "!static")}}
   <h2 id="method-summary">Method Summary</h2>
 
-  {{#if (hasNonStaticPublic methods)}}
+  {{#if (filter methods "!static" "public")}}
     <table class="summary">
       <thead>
       <tr>
@@ -151,16 +139,14 @@
       </tr>
       </thead>
       <tbody>
-      {{#each methods}}
-        {{#if (and (isNonStatic this) (isPublic this))}}
-          {{>method-short}}
-        {{/if}}
+      {{#each (filter methods "!static" "public")}}
+        {{>method-short}}
       {{/each}}
       </tbody>
     </table>
   {{/if}}
 
-  {{#if (hasNonStaticProtected methods)}}
+  {{#if (filter methods "!static" "protected")}}
     <table class="summary">
       <thead>
       <tr>
@@ -168,16 +154,14 @@
       </tr>
       </thead>
       <tbody>
-      {{#each methods}}
-        {{#if (and (isNonStatic this) (isProtected this))}}
-          {{>method-short}}
-        {{/if}}
+      {{#each (filter methods "!static" "protected")}}
+        {{>method-short}}
       {{/each}}
       </tbody>
     </table>
   {{/if}}
 
-  {{#if (hasNonStaticPrivate methods)}}
+  {{#if (filter methods "!static" "private")}}
     <table class="summary">
       <thead>
       <tr>
@@ -185,10 +169,8 @@
       </tr>
       </thead>
       <tbody>
-      {{#each methods}}
-        {{#if (and (isNonStatic this) (isPrivate this))}}
-          {{>method-short}}
-        {{/if}}
+      {{#each (filter methods "!static" "private")}}
+        {{>method-short}}
       {{/each}}
       </tbody>
     </table>
@@ -197,101 +179,83 @@
 
 
 
-{{#if (hasStaticPublic methods)}}
+{{#if (filter methods "static" "public")}}
     <div id="methods public">
         <h2 id="static-public-methods">Static Public Methods</h2>
-        {{#each methods}}
-            {{#if (and (isStatic this) (isPublic this))}}
+        {{#each (filter methods "static" "public")}}
 {{>method}}
-            {{/if}}
         {{/each}}
     </div>
 {{/if}}
 
-{{#if (hasStaticProtected methods)}}
+{{#if (filter methods "static" "protected")}}
     <div id="methods protected">
         <h2 id="static-protected-methods">Static Protected Methods</h2>
-        {{#each methods}}
-            {{#if (and (isStatic this) (isProtected this))}}
+        {{#each (filter methods "static" "protected")}}
 {{>method}}
-            {{/if}}
         {{/each}}
     </div>
 {{/if}}
 
-{{#if (hasStaticPrivate methods)}}
+{{#if (filter methods "static" "private")}}
     <div id="methods private">
         <h2 id="static-private-methods">Static Private Methods</h2>
-        {{#each methods}}
-            {{#if (and (isStatic this) (isPrivate this))}}
+        {{#each (filter methods "static" "private")}}
 {{>method}}
-            {{/if}}
         {{/each}}
     </div>
 {{/if}}
 
-{{#if (hasPublic is_constructor)}}
+{{#if (filter is_constructor "public")}}
   <div id="methods public">
     <h2 id="public-constructors">Public Constructors</h2>
-    {{#each is_constructor}}
-      {{#if (isPublic this)}}
+    {{#each (filter is_constructor "public")}}
 {{>method}}
-      {{/if}}
     {{/each}}
   </div>
 {{/if}}
 
-{{#if (hasProtected is_constructor)}}
+{{#if (filter is_constructor "protected")}}
   <div id="methods protected">
     <h2 id="protected-constructors">Protected Constructors</h2>
-    {{#each is_constructor}}
-      {{#if (isProtected this)}}
+    {{#each (filter is_constructor "protected")}}
 {{>method}}
-      {{/if}}
     {{/each}}
   </div>
 {{/if}}
 
-{{#if (hasPrivate is_constructor)}}
+{{#if (filter is_constructor "private")}}
   <div id="methods private">
     <h2 id="private-constructors">Private Constructors</h2>
-    {{#each is_constructor}}
-      {{#if (isPrivate this)}}
+    {{#each (filter is_constructor "private")}}
 {{>method}}
-      {{/if}}
     {{/each}}
   </div>
 {{/if}}
 
-{{#if (hasNonStaticPublic methods)}}
+{{#if (filter methods "!static" "public")}}
   <div id="methods public">
     <h2 id="public-methods">Public Methods</h2>
-    {{#each methods}}
-      {{#if (and (isNonStatic this) (isPublic this))}}
+    {{#each (filter methods "!static" "public")}}
 {{>method}}
-      {{/if}}
     {{/each}}
   </div>
 {{/if}}
 
-{{#if (hasNonStaticProtected methods)}}
+{{#if (filter methods "!static" "protected")}}
     <div id="methods protected">
         <h2 id="protected-methods">Protected Methods</h2>
-        {{#each methods}}
-            {{#if (and (isNonStatic this) (isProtected this))}}
+        {{#each (filter methods "!static" "protected")}}
 {{>method}}
-            {{/if}}
         {{/each}}
     </div>
 {{/if}}
 
-{{#if (hasNonStaticPrivate methods)}}
+{{#if (filter methods "!static" "private")}}
     <div id="methods private">
         <h2 id="private-methods">Private Methods</h2>
-        {{#each methods}}
-            {{#if (and (isNonStatic this) (isPrivate this))}}
+        {{#each (filter methods "!static" "private")}}
 {{>method}}
-            {{/if}}
         {{/each}}
     </div>
 {{/if}}
