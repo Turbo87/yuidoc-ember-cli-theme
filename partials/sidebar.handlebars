@@ -53,43 +53,123 @@
 </div>
 {{/if}}
 
-{{#if methods}}
-<div id="methods-on-page" class="sidebox on-page">
-    <div class="hd">
-        <h2 class="no-toc">Methods On Page</h2>
-    </div>
-    <div class="bd">
-        {{#if (hasPublic methods)}}
-            <h4>Public</h4>
-            <ul>
-              {{#methods}}
-                  {{#if (isPublic this)}}
-                      <li><a href="#method_{{name}}">{{name}}</a></li>
-                  {{/if}}
-              {{/methods}}
-            </ul>
-        {{/if}}
-        {{#if (hasProtected methods)}}
-            <h4>Protected</h4>
-            <ul>
-              {{#methods}}
-                  {{#if (isProtected this)}}
-                      <li><a href="#method_{{name}}">{{name}}</a></li>
-                  {{/if}}
-              {{/methods}}
-            </ul>
-        {{/if}}
-        {{#if (hasPrivate methods)}}
-            <h4>Private</h4>
-            <ul>
-              {{#methods}}
-                  {{#if (isPrivate this)}}
-                      <li><a href="#method_{{name}}">{{name}}</a></li>
-                  {{/if}}
-              {{/methods}}
-            </ul>
-        {{/if}}
-    </div>
+{{#if (or methods is_constructor)}}
+<div id="sections" class="sidebox">
+  <div class="hd">
+    <h2 class="no-toc">{{moduleName}}</h2>
+  </div>
+  <div class="bd">
+    {{#if (hasStatic methods)}}
+      <div><a href="#static-method-summary">Static Method Summary</a></div>
+    {{/if}}
+
+    {{#if is_constructor}}
+      <div><a href="#constructor-summary">Constructor Summary</a></div>
+    {{/if}}
+
+    {{#if (hasNonStatic methods)}}
+      <div><a href="#method-summary">Method Summary</a></div>
+    {{/if}}
+
+    {{#if (hasStaticPublic methods)}}
+      <div><a href="#static-public-methods">Static Public Methods</a></div>
+      <ul>
+        {{#each methods}}
+          {{#if (and (isStatic this) (isPublic this))}}
+            <li><a href="#method_{{name}}">{{name}}</a></li>
+          {{/if}}
+        {{/each}}
+      </ul>
+    {{/if}}
+
+    {{#if (hasStaticProtected methods)}}
+      <div><a href="#static-protected-methods">Static Protected Methods</a></div>
+      <ul>
+        {{#each methods}}
+          {{#if (and (isStatic this) (isProtected this))}}
+            <li><a href="#method_{{name}}">{{name}}</a></li>
+          {{/if}}
+        {{/each}}
+      </ul>
+    {{/if}}
+
+    {{#if (hasStaticPrivate methods)}}
+      <div><a href="#static-private-methods">Static Private Methods</a></div>
+      <ul>
+        {{#each methods}}
+          {{#if (and (isStatic this) (isPrivate this))}}
+            <li><a href="#method_{{name}}">{{name}}</a></li>
+          {{/if}}
+        {{/each}}
+      </ul>
+    {{/if}}
+
+    {{#if (hasPublic is_constructor)}}
+      <div><a href="#public-constructors">Public Constructors</a></div>
+      <ul>
+        {{#each is_constructor}}
+          {{#if (isPublic is_constructor)}}
+            <li><a href="#method_{{name}}">{{name}}</a></li>
+          {{/if}}
+        {{/each}}
+      </ul>
+    {{/if}}
+
+    {{#if (hasProtected is_constructor)}}
+      <div><a href="#protected-constructors">Protected Constructors</a></div>
+      <ul>
+        {{#each is_constructor}}
+          {{#if (isProtected is_constructor)}}
+            <li><a href="#method_{{name}}">{{name}}</a></li>
+          {{/if}}
+        {{/each}}
+      </ul>
+    {{/if}}
+
+    {{#if (hasPrivate is_constructor)}}
+      <div><a href="#private-constructors">Private Constructors</a></div>
+      <ul>
+        {{#each is_constructor}}
+          {{#if (isPrivate is_constructor)}}
+            <li><a href="#method_{{name}}">{{name}}</a></li>
+          {{/if}}
+        {{/each}}
+      </ul>
+    {{/if}}
+
+    {{#if (hasNonStaticPublic methods)}}
+      <div><a href="#public-methods">Public Methods</a></div>
+      <ul>
+        {{#each methods}}
+          {{#if (and (isNonStatic this) (isPublic this))}}
+            <li><a href="#method_{{name}}">{{name}}</a></li>
+          {{/if}}
+        {{/each}}
+      </ul>
+    {{/if}}
+
+    {{#if (hasNonStaticProtected methods)}}
+      <div><a href="#protected-methods">Protected Methods</a></div>
+      <ul>
+        {{#each methods}}
+          {{#if (and (isNonStatic this) (isProtected this))}}
+            <li><a href="#method_{{name}}">{{name}}</a></li>
+          {{/if}}
+        {{/each}}
+      </ul>
+    {{/if}}
+
+    {{#if (hasNonStaticPrivate methods)}}
+      <div><a href="#private-methods">Private Methods</a></div>
+      <ul>
+        {{#each methods}}
+          {{#if (and (isNonStatic this) (isPrivate this))}}
+            <li><a href="#method_{{name}}">{{name}}</a></li>
+          {{/if}}
+        {{/each}}
+      </ul>
+    {{/if}}
+  </div>
 </div>
 {{/if}}
 
