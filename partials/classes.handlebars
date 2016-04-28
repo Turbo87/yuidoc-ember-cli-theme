@@ -177,7 +177,32 @@
   {{/if}}
 {{/if}}
 
+{{#if (filter properties "static" "public")}}
+    <div id="properties public">
+        <h2 id="static-public-properties">Static Public Properties</h2>
+        {{#each (filter properties "static" "public")}}
+{{>props}}
+        {{/each}}
+    </div>
+{{/if}}
 
+{{#if (filter properties "static" "protected")}}
+    <div id="properties protected">
+        <h2 id="static-protected-properties">Static Protected Properties</h2>
+        {{#each (filter properties "static" "protected")}}
+{{>props}}
+        {{/each}}
+    </div>
+{{/if}}
+
+{{#if (filter properties "static" "private")}}
+    <div id="properties private">
+        <h2 id="static-private-properties">Static Private Properties</h2>
+        {{#each (filter properties "static" "private")}}
+{{>props}}
+        {{/each}}
+    </div>
+{{/if}}
 
 {{#if (filter methods "static" "public")}}
     <div id="methods public">
@@ -233,6 +258,33 @@
   </div>
 {{/if}}
 
+{{#if (filter properties "!static" "public")}}
+    <div id="properties public">
+        <h2 id="public-properties">Public Properties</h2>
+        {{#each (filter properties "!static" "public")}}
+{{>props}}
+        {{/each}}
+    </div>
+{{/if}}
+
+{{#if (filter properties "!static" "protected")}}
+    <div id="properties protected">
+        <h2 id="protected-properties">Protected Properties</h2>
+        {{#each (filter properties "!static" "protected")}}
+{{>props}}
+        {{/each}}
+    </div>
+{{/if}}
+
+{{#if (filter properties "!static" "private")}}
+    <div id="properties private">
+        <h2 id="private-properties">Private Properties</h2>
+        {{#each (filter properties "!static" "private")}}
+{{>props}}
+        {{/each}}
+    </div>
+{{/if}}
+
 {{#if (filter methods "!static" "public")}}
   <div id="methods public">
     <h2 id="public-methods">Public Methods</h2>
@@ -256,17 +308,6 @@
         <h2 id="private-methods">Private Methods</h2>
         {{#each (filter methods "!static" "private")}}
 {{>method}}
-        {{/each}}
-    </div>
-{{/if}}
-
-
-
-{{#if properties}}
-    <div id="props">
-        <h2>Properties</h2>
-        {{#each properties}}
-{{>props}}
         {{/each}}
     </div>
 {{/if}}
