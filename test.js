@@ -54,3 +54,16 @@ describe('concat', function() {
     expect(helpers.concat('foo', 'bar', 'baz', 'foooo')).to.equal('foobarbaz');
   });
 });
+
+describe('isStatic', function() {
+  it('is truthy if `static` property is truthy', function() {
+    expect(helpers.isStatic({ static: true })).to.be.ok;
+    expect(helpers.isStatic({ static: 1 })).to.be.ok;
+  });
+
+  it('is falsy if `static` property is falsy or missing', function() {
+    expect(helpers.isStatic({})).to.not.be.ok;
+    expect(helpers.isStatic({ static: false })).to.not.be.ok;
+    expect(helpers.isStatic({ static: 0 })).to.not.be.ok;
+  });
+});
