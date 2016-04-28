@@ -44,3 +44,13 @@ describe('or', function() {
     expect(helpers.or(false, false, false, false, true)).to.be.false;
   });
 });
+
+describe('concat', function() {
+  it('concats all arguments', function() {
+    expect(helpers.concat('hello', ' ', 'world', {})).to.equal('hello world');
+  });
+
+  it('ignores last `option` argument', function() {
+    expect(helpers.concat('foo', 'bar', 'baz', 'foooo')).to.equal('foobarbaz');
+  });
+});
