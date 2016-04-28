@@ -1,6 +1,6 @@
 {
   "name": "yuidoc-ember-cli-theme",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "YUIDoc theme for Ember CLI",
   "main": "index.js",
   "scripts": {
