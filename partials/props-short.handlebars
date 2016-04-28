@@ -1,0 +1,15 @@
+<tr>
+  <td>
+    {{ensure-access access}}
+    {{#if static}}static{{/if}}
+    {{#if final}}final{{/if}}
+  </td>
+  <td>
+    <div class="property-name {{#if deprecated}}deprecated{{/if}}">
+      <a href="#props_{{name}}">{{name}}</a>{{#if type}}: {{#crossLink type}}{{/crossLink}}{{/if}}
+    </div>
+    <div class="short-description">
+      {{{first-paragraph description}}}
+    </div>
+  </td>
+</tr>

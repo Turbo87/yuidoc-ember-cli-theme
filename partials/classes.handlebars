@@ -77,6 +77,55 @@
   {{/if}}
 {{/if}}
 
+{{#if (filter properties "static")}}
+  <h2 id="static-property-summary">Static Property Summary</h2>
+
+  {{#if (filter properties "static" "public")}}
+    <table class="summary">
+      <thead>
+      <tr>
+        <th colspan="2">Static Public Properties</th>
+      </tr>
+      </thead>
+      <tbody>
+      {{#each (filter properties "static" "public")}}
+        {{>props-short}}
+      {{/each}}
+      </tbody>
+    </table>
+  {{/if}}
+
+  {{#if (filter properties "static" "protected")}}
+    <table class="summary">
+      <thead>
+      <tr>
+        <th colspan="2">Static Protected Properties</th>
+      </tr>
+      </thead>
+      <tbody>
+      {{#each (filter properties "static" "protected")}}
+        {{>props-short}}
+      {{/each}}
+      </tbody>
+    </table>
+  {{/if}}
+
+  {{#if (filter properties "static" "private")}}
+    <table class="summary">
+      <thead>
+      <tr>
+        <th colspan="2">Static Private Properties</th>
+      </tr>
+      </thead>
+      <tbody>
+      {{#each (filter properties "static" "private")}}
+        {{>props-short}}
+      {{/each}}
+      </tbody>
+    </table>
+  {{/if}}
+{{/if}}
+
 
 {{#if is_constructor}}
   <h2 id="constructor-summary">Constructor Summary</h2>
@@ -127,6 +176,56 @@
   {{/if}}
 {{/if}}
 
+
+
+{{#if (filter properties "!static")}}
+  <h2 id="property-summary">Property Summary</h2>
+
+  {{#if (filter properties "!static" "public")}}
+    <table class="summary">
+      <thead>
+      <tr>
+        <th colspan="2">Public Properties</th>
+      </tr>
+      </thead>
+      <tbody>
+      {{#each (filter properties "!static" "public")}}
+        {{>props-short}}
+      {{/each}}
+      </tbody>
+    </table>
+  {{/if}}
+
+  {{#if (filter properties "!static" "protected")}}
+    <table class="summary">
+      <thead>
+      <tr>
+        <th colspan="2">Protected Properties</th>
+      </tr>
+      </thead>
+      <tbody>
+      {{#each (filter properties "!static" "protected")}}
+        {{>props-short}}
+      {{/each}}
+      </tbody>
+    </table>
+  {{/if}}
+
+  {{#if (filter properties "!static" "private")}}
+    <table class="summary">
+      <thead>
+      <tr>
+        <th colspan="2">Private Properties</th>
+      </tr>
+      </thead>
+      <tbody>
+      {{#each (filter properties "!static" "private")}}
+        {{>props-short}}
+      {{/each}}
+      </tbody>
+    </table>
+  {{/if}}
+{{/if}}
 
 {{#if (filter methods "!static")}}
   <h2 id="method-summary">Method Summary</h2>
