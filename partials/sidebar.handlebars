@@ -57,12 +57,16 @@
 </div>
 {{/if}}
 
-{{#if (or methods is_constructor)}}
+{{#if (or methods is_constructor properties)}}
 <div id="sections" class="sidebox">
   <div class="hd">
     <h2 class="no-toc">{{moduleName}}</h2>
   </div>
   <div class="bd">
+    {{#if (filter properties "static")}}
+      <div><a href="#static-property-summary">Static Property Summary</a></div>
+    {{/if}}
+
     {{#if (filter methods "static")}}
       <div><a href="#static-method-summary">Static Method Summary</a></div>
     {{/if}}
@@ -71,8 +75,39 @@
       <div><a href="#constructor-summary">Constructor Summary</a></div>
     {{/if}}
 
+    {{#if (filter properties "!static")}}
+      <div><a href="#property-summary">Property Summary</a></div>
+    {{/if}}
+
     {{#if (filter methods "!static")}}
       <div><a href="#method-summary">Method Summary</a></div>
+    {{/if}}
+
+    {{#if (filter properties "static" "public")}}
+      <div><a href="#static-public-properties">Static Public Properties</a></div>
+      <ul>
+        {{#each (filter properties "static" "public")}}
+          <li><a href="#props_{{name}}">{{name}}</a></li>
+        {{/each}}
+      </ul>
+    {{/if}}
+
+    {{#if (filter properties "static" "protected")}}
+      <div><a href="#static-protected-properties">Static Protected Properties</a></div>
+      <ul>
+        {{#each (filter properties "static" "protected")}}
+          <li><a href="#props_{{name}}">{{name}}</a></li>
+        {{/each}}
+      </ul>
+    {{/if}}
+
+    {{#if (filter properties "static" "private")}}
+      <div><a href="#static-private-properties">Static Private Properties</a></div>
+      <ul>
+        {{#each (filter properties "static" "private")}}
+          <li><a href="#props_{{name}}">{{name}}</a></li>
+        {{/each}}
+      </ul>
     {{/if}}
 
     {{#if (filter methods "static" "public")}}
@@ -129,6 +164,33 @@
       </ul>
     {{/if}}
 
+    {{#if (filter properties "!static" "public")}}
+      <div><a href="#public-properties">Public Properties</a></div>
+      <ul>
+        {{#each (filter properties "!static" "public")}}
+          <li><a href="#props_{{name}}">{{name}}</a></li>
+        {{/each}}
+      </ul>
+    {{/if}}
+
+    {{#if (filter properties "!static" "protected")}}
+      <div><a href="#protected-properties">Protected Properties</a></div>
+      <ul>
+        {{#each (filter properties "!static" "protected")}}
+          <li><a href="#props_{{name}}">{{name}}</a></li>
+        {{/each}}
+      </ul>
+    {{/if}}
+
+    {{#if (filter properties "!static" "private")}}
+      <div><a href="#private-properties">Private Properties</a></div>
+      <ul>
+        {{#each (filter properties "!static" "private")}}
+          <li><a href="#props_{{name}}">{{name}}</a></li>
+        {{/each}}
+      </ul>
+    {{/if}}
+
     {{#if (filter methods "!static" "public")}}
       <div><a href="#public-methods">Public Methods</a></div>
       <ul>
@@ -169,21 +231,6 @@
             {{#events}}
                 <li><a href="#events_{{name}}">{{name}}</a></li>
             {{/events}}
-        </ul>
-    </div>
-</div>
-{{/if}}
-
-{{#if properties}}
-<div id="props-on-page" class="sidebox">
-    <div class="hd">
-        <h2 class="no-toc">Props On Page</h2>
-    </div>
-    <div class="bd">
-        <ul>
-            {{#properties}}
-                <li><a href="#props_{{name}}">{{name}}</a></li>
-            {{/properties}}
         </ul>
     </div>
 </div>
