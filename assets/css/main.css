@@ -427,6 +427,13 @@ ul li p {
 
 .logo {
   margin: 30px 0;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.logo a {
+  color: #E48A2B;
+  text-decoration: none;
 }
 
 .logo img {
