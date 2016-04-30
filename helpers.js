@@ -55,7 +55,7 @@ function isPrivate(item) {
 function filter(items) {
   var args = arguments;
 
-  if (items) {
+  if (isArray(items)) {
     return items.filter(function(item) {
       for (var i = 1, len = args.length - 1; i < len; i++) {
         if (!fulfills(item, args[i])) {
@@ -101,6 +101,10 @@ function firstParagraph(text) {
       return match[0];
     }
   }
+}
+
+function isArray(value) {
+  return Object.prototype.toString.call(value) === "[object Array]";
 }
 
 module.exports = {
