@@ -67,3 +67,58 @@ describe('isStatic', function() {
     expect(helpers.isStatic({ static: 0 })).to.not.be.ok;
   });
 });
+
+describe('isPublic', function() {
+  it('is true if `access` property does not exist', function() {
+    expect(helpers.isPublic({})).to.be.true;
+  });
+
+  it('is true if `access` property is `public`', function() {
+    expect(helpers.isPublic({ access: 'public' })).to.be.true;
+  });
+
+  it('is false if `access` property is `protected`', function() {
+    expect(helpers.isPublic({ access: 'protected' })).to.be.false;
+  });
+
+  it('is false if `access` property is `private`', function() {
+    expect(helpers.isPublic({ access: 'private' })).to.be.false;
+  });
+});
+
+describe('isProtected', function() {
+  it('is false if `access` property does not exist', function() {
+    expect(helpers.isProtected({})).to.be.false;
+  });
+
+  it('is false if `access` property is `public`', function() {
+    expect(helpers.isProtected({ access: 'public' })).to.be.false;
+  });
+
+  it('is true if `access` property is `protected`', function() {
+    expect(helpers.isProtected({ access: 'protected' })).to.be.true;
+  });
+
+  it('is false if `access` property is `private`', function() {
+    expect(helpers.isProtected({ access: 'private' })).to.be.false;
+  });
+});
+
+
+describe('isPrivate', function() {
+  it('is false if `access` property does not exist', function() {
+    expect(helpers.isPrivate({})).to.be.false;
+  });
+
+  it('is false if `access` property is `public`', function() {
+    expect(helpers.isPrivate({ access: 'public' })).to.be.false;
+  });
+
+  it('is false if `access` property is `protected`', function() {
+    expect(helpers.isPrivate({ access: 'protected' })).to.be.false;
+  });
+
+  it('is true if `access` property is `private`', function() {
+    expect(helpers.isPrivate({ access: 'private' })).to.be.true;
+  });
+});
