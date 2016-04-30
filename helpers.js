@@ -36,10 +36,6 @@ function isStatic(item) {
   return item.static;
 }
 
-function isNonStatic(item) {
-  return !isStatic(item);
-}
-
 function isPublic(item) {
   return !item.access || item.access === 'public';
 }
@@ -112,7 +108,6 @@ module.exports = {
   or: or,
   concat: concat,
   isStatic: isStatic,
-  isNonStatic: isNonStatic,
   isPublic: isPublic,
   isProtected: isProtected,
   isPrivate: isPrivate,
