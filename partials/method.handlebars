@@ -90,20 +90,18 @@
       </div>
     {{/if}}
 
-    {{#if throws}}
-      <div class="return">
+    {{#throws}}
+      <div class="throws">
         <h4>Throws:</h4>
-        {{#each throws}}
-          <div>
-            {{#if type}}<span class="throws-type">{{#crossLink type}}{{/crossLink}}</span>{{/if}}
-            <span class="throws-description">{{{description}}}</span>
-          </div>
-        {{/each}}
+        <div class="throws-description">
+          {{#if type}} <span class="type">{{#crossLink type}}{{/crossLink}}</span>: {{/if}}
+          {{#if description}} {{{description}}} {{/if}}
+        </div>
       </div>
-    {{/if}}
+    {{/throws}}
 
     {{#if example}}
-        <h4>Example:</h4>
-        {{{example}}}
+      <h4>Example:</h4>
+      {{{example}}}
     {{/if}}
 </div>
