@@ -2,6 +2,14 @@ var fs = require('fs');
 var MarkdownIt = require('markdown-it');
 var md = new MarkdownIt();
 
+function log() {
+  var args = [];
+  for (var i = 0, len = arguments.length - 1; i < len; i++) {
+    args.push(arguments[i]);
+  }
+  console.log.apply(console.log, args);
+}
+
 function and() {
   for (var i = 0, len = arguments.length - 1; i < len; i++) {
     if (!arguments[i]) {
@@ -104,6 +112,7 @@ function isArray(value) {
 }
 
 module.exports = {
+  log: log,
   and: and,
   or: or,
   concat: concat,
