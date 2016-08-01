@@ -90,15 +90,15 @@
       </div>
     {{/if}}
 
-    {{#throws}}
+    {{#if throws}}
       <div class="throws">
         <h4>Throws:</h4>
-        <div class="throws-description">
-          {{#if type}} <span class="type">{{#crossLink type}}{{/crossLink}}</span>: {{/if}}
-          {{#if description}} {{{description}}} {{/if}}
+        <div>
+          {{#if throws.type}}<span class="throws-type">{{#crossLink throws.type}}{{/crossLink}}</span>{{/if}}
+          <span class="throws-description">{{{throws.description}}}</span>
         </div>
       </div>
-    {{/throws}}
+    {{/if}}
 
     {{#if example}}
       <h4>Example:</h4>
