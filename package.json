@@ -22,10 +22,10 @@
   },
   "homepage": "https://github.com/Turbo87/yuidoc-ember-cli-theme#readme",
   "dependencies": {
-    "markdown-it": "^6.0.1"
+    "markdown-it": "^7.0.0"
   },
   "devDependencies": {
     "chai": "^3.5.0",
-    "mocha": "^2.4.5"
+    "mocha": "^3.0.1"
   }
 }
