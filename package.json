@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/Turbo87/yuidoc-ember-cli-theme#readme",
   "dependencies": {
-    "markdown-it": "^7.0.0"
+    "markdown-it": "^8.0.0"
   },
   "devDependencies": {
     "chai": "^3.5.0",
